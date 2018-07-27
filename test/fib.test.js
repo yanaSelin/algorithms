@@ -25,4 +25,8 @@ describe('fib', () => {
   it('should return null for fractional numbers', () => {
     assert.equal(fib(2.8), null);
   });
+
+  it('should work with numbers less or equal 50', () => {
+    assert.equal(fib(50), 12586269025);
+  });
 });
