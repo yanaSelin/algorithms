@@ -14,11 +14,14 @@ module.exports = function mergeSort(array = []) {
     const firstCurrent = first[firstIndex];
     const secondCurrent = second[secondIndex];
     if (firstCurrent === undefined) {
-      result.push(secondCurrent++);
+      result.push(secondCurrent);
+      secondIndex += 1;
     } else if (secondCurrent === undefined || firstCurrent < secondCurrent) {
-      result.push(firstCurrent++);
+      result.push(firstCurrent);
+      firstIndex += 1
     } else {
-      result.push(secondCurrent++);
+      result.push(secondCurrent);
+      secondIndex += 1;
     }
   }
 
