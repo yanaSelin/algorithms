@@ -1,5 +1,5 @@
 module.exports = function uniq(array = []) {
-  const result = {};
-  array.forEach(el => result[el] = true);
-  return Object.keys(result).map(el => el == +el ? +el : el);
+  const result = new Map();
+  array.forEach(el => result.set(el, true));
+  return Array.from(result.keys());
 };

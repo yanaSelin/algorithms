@@ -11,7 +11,6 @@ describe('uniq', () => {
   });
 
   it('should return uniq values from passed array', () => {
-    const uniqValues = uniq([1, 4, 2, 2, 3, 4, 8]);
-    assert.deepEqual([1, 4, 2, 3, 8].every(el => uniqValues.includes(el)), true);
+    assert.deepEqual(uniq([1, 4, 2, 2, 3, 4, 8]), [1, 4, 2, 3, 8]);
   });
 });
