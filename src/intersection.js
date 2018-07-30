@@ -1,10 +1,16 @@
-module.exports = function intersection(array1 = [], array2 = []) {
-  const result = {};
-  array1.forEach(el => result[el] = [true]);
-  array2.forEach(el => result[el] && (result[el][1] = true));
-  return Object.keys(result).reduce((acc, el) => {
-    if (result[el].length === 2) {
-      acc.push(el == +el ? +el : el)
+module.exports = function intersection(arrays = []) {
+  const result = new Map();
+  arrays.forEach((array, i) => (
+    array.forEach(el => {
+      if (result.get(el) === undefined) {
+        result.set(el, new Map());
+      }
+      result.get(el).set(i, true);
+    })
+  ));
+  return Array.from(result.keys()).reduce((acc, el) => {
+    if (result.get(el).size === arrays.length) {
+      acc.push(el)
     }
     return acc
   }, []);

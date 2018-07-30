@@ -6,16 +6,11 @@ describe('intersection', () => {
     assert.deepEqual(intersection(), []);
   });
 
-  it('should return empty array if second array is not passed', () => {
-    assert.deepEqual(intersection([1, 2, 3]), []);
-  });
-
   it('should return intersection of passed arrays', () => {
-    const uniqValues = intersection([1, 5, 4, 2], [8, 91, 4, 1, 3]);
-    assert.equal([4, 1].every(el => uniqValues.includes(el)), true);
+    assert.deepEqual(intersection([[1, 5, 4, 2], [8, 91, 4, 1, 3]]), [1, 4]);
   });
 
   it('should return empty array is passed arrays dont have common values', () => {
-    assert.deepEqual(intersection([1, 5, 4, 2], [7, 12]), []);
+    assert.deepEqual(intersection([[1, 5, 4, 2], [7, 12]]), []);
   });
 });
